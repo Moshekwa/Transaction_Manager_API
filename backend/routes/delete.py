@@ -1,4 +1,3 @@
-
 from flask import Blueprint, jsonify, request
 from models.transaction_model import Transaction
 from db.db_service import db

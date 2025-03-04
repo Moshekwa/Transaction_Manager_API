@@ -1,14 +1,14 @@
 from flask import Blueprint, jsonify, request
 from models.transaction_model import Transaction
 from db.db_service import db
-from datetime import datetime
+
 from schemas.transaction_schema import TransactionInput
 from schemas.transaction_schema import TransactionOutput
 
 from pydantic import ValidationError
 from sqlalchemy.exc import SQLAlchemyError
 
-blp = Blueprint('TransactionPostRequests',__name__)
+blp = Blueprint('TransactionPutRequests',__name__)
 
 # Update a transaction by ID
 @blp.put('/transactions/<int:txn_id>')
@@ -26,6 +26,7 @@ def update_transaction(txn_id):
             txn.amount = data.amount
             txn.type = data.type
             txn.description = data.description
+
             db.session.commit()
 
             # Return the updated transaction using the TransactionOutput schema

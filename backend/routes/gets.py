@@ -1,9 +1,12 @@
 from flask import Blueprint, jsonify
 from sqlalchemy.exc import SQLAlchemyError
+
 from models.transaction_model import Transaction
 from schemas.transaction_schema import TransactionOutput
 
-blp = Blueprint('TransactionPutRequests',__name__)
+from db.db_service import db
+
+blp = Blueprint('TransactionGetRequests',__name__)
 
 @blp.get("/")
 def HelloWorld():
@@ -48,7 +51,7 @@ def get_transactions():
 
 # Get a single transaction by ID
 @blp.get('/transactions/<int:txn_id>')
-def get_transaction(txn_id):
+def get_transaction_id(txn_id):
     try:
         txn = Transaction.query.get(txn_id)
         if txn:
@@ -65,3 +68,12 @@ def get_transaction(txn_id):
     except SQLAlchemyError as e:
         return jsonify({"error": str(e)}), 500
 
+@blp.get('/transaction_balance')
+def get_transactions_balance():
+    try:
+        # Query the database to calculate the total balance
+        balance = db.session.query(db.func.sum(Transaction.amount)).scalar() or 0
+
+        return jsonify({"Total Running Balance R": balance}), 200
+    except SQLAlchemyError as e:
+        return jsonify({"error": str(e)}), 500
