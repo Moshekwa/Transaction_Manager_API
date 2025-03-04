@@ -1,5 +1,6 @@
 from flask import Flask
 from routes.gets import blp as GetRequestRoutes
+from routes.post import blp as PostRequestRoutes
 from db.db_service import db
 
 def create_app() -> Flask:
@@ -21,6 +22,7 @@ def create_app() -> Flask:
         db.create_all()
 
     app.register_blueprint(GetRequestRoutes)
+    app.register_blueprint(PostRequestRoutes)
 
     return app
 
