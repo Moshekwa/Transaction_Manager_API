@@ -1,4 +1,4 @@
-from pydantic import BaseModel, conint, constr
+from pydantic import BaseModel, constr
 from datetime import datetime
 from typing import Literal
 

@@ -12,7 +12,13 @@ def create_app() -> Flask:
 
     app.config["PROPAGATE_EXCEPTIONS"] = False
 
-    # Database configuration
+    #app.config["API_TITLE"] = "Transaction Manager API"
+    #app.config["API_VERSION"] = "v1"
+    #app.config["OPENAPI_VERSION"] = "3.0.2"
+    #app.config["OPENAPI_URL_PREFIX"] = "/"
+    #app.config["OPENAPI_SWAGGER_UI_PATH"] = "/swagger-ui"
+
+    # postgRES Service Config
     app.config["SQLALCHEMY_DATABASE_URI"] = (
         f"postgresql+psycopg2://admin:password@postgres:5432/txn_db"
     )
@@ -35,5 +41,5 @@ def create_app() -> Flask:
 # Create the app instance
 app = create_app()
 
-# if __name__ == "__main__":
-#    app.run(debug=True)
+if __name__ == "__main__":
+    app.run(debug=True)
