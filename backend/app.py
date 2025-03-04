@@ -9,7 +9,7 @@ def create_app() -> Flask:
 
     # Database configuration
     app.config["SQLALCHEMY_DATABASE_URI"] = (
-        f"postgresql://admin:password@postgres:5435/txn_db"
+        f"postgresql+psycopg2://admin:password@postgres:5432/txn_db"
     )
     app.config["SQLALCHEMY_TRACK_MODIFICATIONS"] = False
 
@@ -26,3 +26,6 @@ def create_app() -> Flask:
 
 # Create the app instance
 app = create_app()
+
+if __name__ == "__main__":
+    app.run(debug=True)

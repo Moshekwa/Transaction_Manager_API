@@ -3,7 +3,6 @@ Flask-SQLAlchemy==3.1.1
 Flask-Migrate==4.0.7
 Flask-RESTful==0.3.10
 Flask-CORS==4.0.0
-psycopg2-binary==2.9.9
 alembic==1.13.1
 python-dotenv==1.0.1
 Marshmallow==3.20.2
@@ -11,7 +10,7 @@ Flask-Marshmallow==1.2.0
 requests==2.31.0
 marshmallow-sqlalchemy==0.24.0
 uvicorn[standard]
-#SQLAlchemy==2.0.38
+SQLAlchemy==2.0.38
 psycopg2-binary
 pydantic
 Hypercorn
