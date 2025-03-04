@@ -27,3 +27,4 @@ def health_check():
             "message": "Database connection failed",
             "error": str(e)
         }), 500
+
