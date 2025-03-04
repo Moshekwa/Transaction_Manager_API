@@ -12,11 +12,8 @@ def create_app() -> Flask:
 
     app.config["PROPAGATE_EXCEPTIONS"] = False
 
-    #app.config["API_TITLE"] = "Transaction Manager API"
-    #app.config["API_VERSION"] = "v1"
-    #app.config["OPENAPI_VERSION"] = "3.0.2"
-    #app.config["OPENAPI_URL_PREFIX"] = "/"
-    #app.config["OPENAPI_SWAGGER_UI_PATH"] = "/swagger-ui"
+    app.config["API_TITLE"] = "Transaction Manager API"
+    app.config["API_VERSION"] = "v1"
 
     # postgRES Service Config
     app.config["SQLALCHEMY_DATABASE_URI"] = (
